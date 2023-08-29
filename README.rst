@@ -51,6 +51,15 @@ It's designed to be pretty simple to use. Here's an example
 
     # A FunctionItem runs a Python function when selected
     function_item = FunctionItem("Call a Python function", input, ["Enter an input"])
+   
+    # A FunctionItem runs a Python coroutine function when selected
+    async def my_coro():
+       await asyncio.sleep(5)
+       print("slept for 5 seconds")
+
+    loop = asyncio.get_event_loop()
+
+    function_item_coro = FunctionItem("Call a Python coroutine function", loop.run_until_complete, [my_coro])
 
     # A CommandItem runs a console command
     command_item = CommandItem("Run a console command",  "touch hello.txt")
@@ -65,6 +74,7 @@ It's designed to be pretty simple to use. Here's an example
     # Once we're done creating them, we just add the items to the menu
     menu.append_item(menu_item)
     menu.append_item(function_item)
+    menu.append_item(function_item_coro)
     menu.append_item(command_item)
     menu.append_item(submenu_item)
 

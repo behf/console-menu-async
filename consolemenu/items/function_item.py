@@ -1,3 +1,4 @@
+import inspect
 from consolemenu.items import ExternalItem
 
 
@@ -35,7 +36,14 @@ class FunctionItem(ExternalItem):
         """
         This class overrides this method
         """
-        self.return_value = self.function(*self.args, **self.kwargs)
+        args = []
+        for i in self.args:
+            if inspect.iscoroutinefunction(i):
+                args.append(i())
+            else:
+                args.append(i)
+
+        self.return_value = self.function(*args, **self.kwargs)
 
     def clean_up(self):
         """
