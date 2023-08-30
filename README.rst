@@ -1,7 +1,7 @@
 |Build Status|\ |Documentation Status|
 
-console-menu
-============
+console-menu-async
+==================
 
 A simple Python menu-based UI system for terminal applications.
 Perfect for those times when you need a menu-driven program, but don’t want the
@@ -28,7 +28,7 @@ Installation can be performed by running pip
 
 .. code:: shell
 
-   pip install console-menu
+   pip install console-menu-async
 
 Usage
 -----

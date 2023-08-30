@@ -3,4 +3,4 @@ Installation
 
 Everyone should run::
 
-    pip install console-menu
+    pip install console-menu-async
